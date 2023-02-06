@@ -16,8 +16,22 @@ public class Passage {
     private List<Link> links;
 
     public Passage(String title, String content) {
-        this.title = title;
-        this.content = content;
+
+        if (title.isBlank()) {
+            IllegalArgumentException e = new IllegalArgumentException();
+            e.printStackTrace();
+            System.out.println("Title cannot be empty!");
+        } else {
+            this.title = title;
+        }
+
+        if (content.isBlank()) {
+            IllegalArgumentException e = new IllegalArgumentException();
+            e.printStackTrace();
+            System.out.println("Content cannot be empty!");
+        } else {
+            this.content = content;
+        }
     }
 
     /**
@@ -37,16 +51,27 @@ public class Passage {
     }
 
     /**
-     *
-     * @param link
-     * @return
+     * Returns true if link is added.
+     * False if link is equal to null.
+     * @param link the link added.
+     * @return true if link is added, false if link is null.
      */
     public boolean addLink(Link link) {
+        if (link != null)  {
+            for(int i = 0; i < links.size(); i++) {
+                if (links.get(i) == null) {
+                        links.set(i, link);
+
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     /**
-     *
-     * @return
+     * Returns the links in the list.
+     * @return the links in the list
      */
     public List<Link> getLinks() {
         return links;
