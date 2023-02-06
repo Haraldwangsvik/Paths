@@ -1,5 +1,7 @@
 package no.ntnu.idatx2001;
 
+import java.util.List;
+
 public class Link {
 
 
