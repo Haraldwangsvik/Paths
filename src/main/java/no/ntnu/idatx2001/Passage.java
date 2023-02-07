@@ -57,16 +57,14 @@ public class Passage {
      * @return true if link is added, false if link is null.
      */
     public boolean addLink(Link link) {
-        if (link != null)  {
-            for(int i = 0; i < links.size(); i++) {
-                if (links.get(i) == null) {
-                        links.set(i, link);
+        if(link != null)  {
+            this.links.add(link);
 
-                    return true;
-                }
-            }
+            return true;
+
+        } else {
+            return false;
         }
-        return false;
     }
 
     /**
