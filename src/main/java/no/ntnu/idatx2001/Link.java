@@ -23,20 +23,12 @@ public class Link {
    * @param reference A string that identifies a passage (a part of a story).
    */
   public Link(String text, String reference) {
-    if (text.isBlank()) {
+    if (isValid()) {
       IllegalArgumentException e = new IllegalArgumentException();
-      e.printStackTrace();
-      System.out.println("text can not be null");
+      e.getMessage();
+      System.out.println("Invalid entry: " + e);
     } else {
       this.text = text;
-    }
-
-    if (reference.isBlank()) {
-      IllegalArgumentException e = new IllegalArgumentException();
-      e.printStackTrace();
-      System.out.println("text can not be null");
-    } else {
-      this.reference = reference;
     }
   }
 
@@ -71,6 +63,10 @@ public class Link {
     return actions;
   }
 
+  public boolean isValid() {
+    return !text.isBlank() && !reference.isBlank();
+  }
+
   /**
    * Return a formatted string, including all information about a link
    * @return a formatted string, including all information about a link
@@ -103,3 +99,5 @@ public class Link {
     return Objects.hash(text, reference, actions);
   }
 }
+
+
