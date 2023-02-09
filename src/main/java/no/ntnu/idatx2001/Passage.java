@@ -61,7 +61,6 @@ public class Passage {
             this.links.add(link);
 
             return true;
-
         } else {
             return false;
         }

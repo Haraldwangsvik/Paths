@@ -3,6 +3,10 @@ package no.ntnu.idatx2001;
 import java.util.Collection;
 import java.util.Map;
 
+/**
+ * A class that represents a story.
+ * Consists of a collection of passages.
+ */
 public class Story {
     //The stories title
     private final String title;
@@ -62,5 +66,6 @@ public class Story {
      * @return all the passages
      */
     public Collection<Passage> getPassages() {
+        return (Collection<Passage>) this.passages;
     }
 }
