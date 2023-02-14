@@ -27,8 +27,8 @@ public class Link {
       this.text = text;
       this.reference = reference;
     } else {
-      IllegalArgumentException e = new IllegalArgumentException();
-      System.out.println("Invalid entry");
+      IllegalArgumentException e = new IllegalArgumentException("Invalid entry");
+      throw e;
     }
   }
 
