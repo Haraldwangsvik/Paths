@@ -24,11 +24,12 @@ public class Link {
    */
   public Link(String text, String reference) {
     if (isValid(text) && isValid(reference)) {
+      this.text = text;
+      this.reference = reference;
+    } else {
       IllegalArgumentException e = new IllegalArgumentException();
       e.getMessage();
       System.out.println("Invalid entry: " + e);
-    } else {
-      this.text = text;
     }
   }
 
