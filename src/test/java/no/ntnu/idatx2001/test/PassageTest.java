@@ -43,8 +43,6 @@ public class PassageTest {
     public void testGetLinks() {
         Link link = new Link("Test text", "reference1");
         Passage passage = new Passage("Gold sword", "You found a gold sword");
-
-
     }
 
     @Test
