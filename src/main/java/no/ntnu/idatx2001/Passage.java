@@ -57,13 +57,10 @@ public class Passage {
      * @return true if link is added, false if link is null.
      */
     public boolean addLink(Link link) {
-        if(link != null)  {
-            this.links.add(link);
-
-            return true;
-        } else {
-            return false;
+        if(link == null)  {
+            throw new IllegalArgumentException("Link can not be null");
         }
+            return links.add(link);
     }
 
     /**
@@ -82,11 +79,7 @@ public class Passage {
      * @return true if links in list, false if empty
      */
     public boolean hasLinks() {
-        if(links.isEmpty()) {
-            return false;
-        } else {
-            return true;
-        }
+        return !links.isEmpty();
     }
 
     /**
