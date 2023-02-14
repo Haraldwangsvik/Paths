@@ -66,6 +66,6 @@ public class Story {
      * @return all the passages
      */
     public Collection<Passage> getPassages() {
-        return (Collection<Passage>) this.passages;
+        return passages.values();
     }
 }
