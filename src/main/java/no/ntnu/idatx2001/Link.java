@@ -23,7 +23,7 @@ public class Link {
    * @param reference A string that identifies a passage (a part of a story).
    */
   public Link(String text, String reference) {
-    if (isValid()) {
+    if (isValid(text) && isValid(reference)) {
       IllegalArgumentException e = new IllegalArgumentException();
       e.getMessage();
       System.out.println("Invalid entry: " + e);
@@ -63,8 +63,8 @@ public class Link {
     return actions;
   }
 
-  public boolean isValid() {
-    return !text.isBlank() && !reference.isBlank();
+  public boolean isValid(String s) {
+    return !s.isBlank();
   }
 
   /**
