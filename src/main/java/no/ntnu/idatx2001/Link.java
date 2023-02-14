@@ -28,8 +28,7 @@ public class Link {
       this.reference = reference;
     } else {
       IllegalArgumentException e = new IllegalArgumentException();
-      e.getMessage();
-      System.out.println("Invalid entry: " + e);
+      System.out.println("Invalid entry");
     }
   }
 
@@ -65,7 +64,7 @@ public class Link {
   }
 
   public boolean isValid(String s) {
-    return !s.isBlank();
+    return s != null && !s.isEmpty();
   }
 
   /**
