@@ -10,6 +10,10 @@ import org.junit.Test;
 
 public class LinkTest {
 
+  /**
+   * Testing creation of Link class with valid input by calling
+   * text: "text" and reference "reference, and then checking that it equals
+   */
   @Test
   public void testCreationOfLinkWithValidParameter()
   {
@@ -26,6 +30,22 @@ public class LinkTest {
       assertTrue(true);
       e.getMessage();
     }
+  }
 
+  @Test
+  public void testCreationOfLinkWithReferenceAsNull() {
+    try {
+      Link link = new Link("text", null);
+    } catch (IllegalArgumentException e) {
+      assertTrue(true);
+      e.getMessage();
+    }
+  }
+
+  @Test
+  public void testGetMethods() {
+    Link link = new Link("text", "reference");
+    assertEquals("text", link.getText());
+    assertEquals("reference", link.getReference());
   }
 }
