@@ -1,6 +1,6 @@
 package no.ntnu.idatx2001;
 
-import no.ntnu.idatx2001.InterfaceGoals.Goal;
+import no.ntnu.idatx2001.goals.Goal;
 
 import java.util.List;
 

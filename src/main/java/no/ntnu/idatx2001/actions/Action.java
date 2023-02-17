@@ -1,4 +1,4 @@
-package no.ntnu.idatx2001.InterfaceActions;
+package no.ntnu.idatx2001.actions;
 
 import no.ntnu.idatx2001.Player;
 

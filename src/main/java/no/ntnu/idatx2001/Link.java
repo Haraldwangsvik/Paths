@@ -1,6 +1,6 @@
 package no.ntnu.idatx2001;
 
-import no.ntnu.idatx2001.InterfaceActions.Action;
+import no.ntnu.idatx2001.actions.Action;
 
 import java.util.List;
 import java.util.Objects;
