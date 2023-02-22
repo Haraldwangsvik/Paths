@@ -36,6 +36,7 @@ public class Link {
 
   /**
    * Return the text of this link
+   *
    * @return the text of this link
    */
   public String getText() {
@@ -44,6 +45,7 @@ public class Link {
 
   /**
    * Return the reference of this link
+   *
    * @return the reference of this link
    */
   public String getReference() {
@@ -59,18 +61,26 @@ public class Link {
 
   /**
    * Return the list of actions
+   *
    * @return the list of actions
    */
   public List<Action> getActions() {
     return actions;
   }
 
-  public boolean isValid(String s) {
-    return s != null && !s.isEmpty();
+  /**
+   * Check that a String is valid by checking that it does not equal null or is empty.
+   *
+   * @param string to be checked if is valid
+   * @return true on string not null or empty, false on string equals null or string is empty
+   */
+  public boolean isValid(String string) {
+    return string != null && !string.isEmpty();
   }
 
   /**
    * Return a formatted string, including all information about a link
+   *
    * @return a formatted string, including all information about a link
    */
   @Override
