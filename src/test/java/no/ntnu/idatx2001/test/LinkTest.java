@@ -12,7 +12,8 @@ public class LinkTest {
 
   /**
    * Testing creation of Link class with valid input by calling
-   * text: "text" and reference "reference, and then checking that it equals
+   * text: "text" and reference "reference, and then checking that these values
+   * are called "text" and "reference".
    */
   @Test
   public void testCreationOfLinkWithValidParameter()
@@ -22,6 +23,10 @@ public class LinkTest {
     assertEquals("reference", link.getReference());
   }
 
+  /**
+   * Testing creation of Link with null as input for the text variable and that it returns
+   * an illegal argument exception.
+   */
   @Test
   public void testCreationOfLinkWithTextAsNull() {
     try {
@@ -32,6 +37,10 @@ public class LinkTest {
     }
   }
 
+  /**
+   * Testing creation of Link with null as input for the reference variable and that it returns
+   * an illegal argument exception.
+   */
   @Test
   public void testCreationOfLinkWithReferenceAsNull() {
     try {
@@ -40,12 +49,5 @@ public class LinkTest {
       assertTrue(true);
       e.getMessage();
     }
-  }
-
-  @Test
-  public void testGetMethods() {
-    Link link = new Link("text", "reference");
-    assertEquals("text", link.getText());
-    assertEquals("reference", link.getReference());
   }
 }
