@@ -16,21 +16,12 @@ public class Passage {
     private List<Link> links;
 
     public Passage(String title, String content) {
-
-        if (title.isBlank()) {
-            IllegalArgumentException e = new IllegalArgumentException();
-            e.printStackTrace();
-            System.out.println("Title cannot be empty!");
-        } else {
+        if (isValid(title) && isValid(content)){
             this.title = title;
-        }
-
-        if (content.isBlank()) {
-            IllegalArgumentException e = new IllegalArgumentException();
-            e.printStackTrace();
-            System.out.println("Content cannot be empty!");
-        } else {
             this.content = content;
+        } else {
+            IllegalArgumentException e = new IllegalArgumentException("Invalid entry");
+            throw e;
         }
     }
 
@@ -80,6 +71,16 @@ public class Passage {
      */
     public boolean hasLinks() {
         return !links.isEmpty();
+    }
+
+    /**
+     * Check that a String is valid by checking that it does not equal null or is empty.
+     *
+     * @param string to be checked if is valid
+     * @return true on string not null or empty, false on string equals null or string is empty
+     */
+    public boolean isValid(String string) {
+        return string != null && !string.isEmpty();
     }
 
     /**
