@@ -1,6 +1,7 @@
 package no.ntnu.idatx2001;
 
 import java.io.StringReader;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,20 +21,19 @@ public class Player {
     private List<String> inventory;
 
     public Player(String name, int health, int score, int gold) {
-        if (name.isBlank()) {
-            IllegalArgumentException e = new IllegalArgumentException();
-            e.printStackTrace();
-            System.out.println("Name cannot be empty!");
-        } else {
+        if (isValid(name)) {
             this.name = name;
+        } else {
+            throw new IllegalArgumentException("Invalid entry");
         }
         if (health < 0) {
-            this.health = 0;
+            throw new IllegalArgumentException("Health can not be negative");
         } else {
             this.health = health;
         }
         this.score = score;
         this.gold = gold;
+        this.inventory = new ArrayList<>();
     }
 
     /**
@@ -97,7 +97,11 @@ public class Player {
      * @param item The item which gets added to the inventory
      */
     public void addToInventory(String item) {
-        inventory.add(item);
+        if (item == null) {
+            throw new IllegalArgumentException("Item can not be null");
+        } else {
+            inventory.add(item);
+        }
     }
 
     /**
@@ -106,5 +110,15 @@ public class Player {
      */
     public List<String> getInventory() {
         return inventory;
+    }
+
+    /**
+     * Check that a String is valid by checking that it does not equal null or is empty.
+     *
+     * @param string to be checked if is valid
+     * @return true on string not null or empty, false on string equals null or string is empty
+     */
+    public boolean isValid(String string) {
+        return string != null && !string.isEmpty();
     }
 }
