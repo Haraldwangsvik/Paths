@@ -1,5 +1,6 @@
 package no.ntnu.idatx2001;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -23,6 +24,7 @@ public class Passage {
             IllegalArgumentException e = new IllegalArgumentException("Invalid entry");
             throw e;
         }
+        this.links = new ArrayList<>();
     }
 
     /**
