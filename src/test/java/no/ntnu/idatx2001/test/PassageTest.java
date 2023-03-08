@@ -51,33 +51,48 @@ public class PassageTest {
 
     @Test
     public void testAddLink() {
-        List<Link> list = new ArrayList<Link>();
-
+        Passage passage = new Passage("title", "content");
         Link link = new Link("text", "reference");
-        Passage passage = new Passage("Gold sword", "You found a gold sword");
 
-        list.add(link);
+        boolean result = passage.addLink(link);
+
+        assertTrue(result);
+    }
+
+    @Test
+    public void testAddLinkWithLinkNull() {
+        Passage passage = new Passage("title","content");
+        try {
+            passage.addLink(null);
+        } catch (IllegalArgumentException e) {
+            assertTrue(true);
+            e.getMessage();
+        }
     }
 
     @Test
     public void testGetLinks() {
-        List<Link> list = new ArrayList<Link>();
-
+        Passage passage = new Passage("title", "content");
         Link link = new Link("text", "reference");
-        Passage passage = new Passage("Gold sword", "You found a gold sword");
+        Link link2 = new Link("text2", "reference2");
 
-        list.add(link);
-        assertEquals(1, passage.getLinks());
+        passage.addLink(link);
+        passage.addLink(link2);
+
+        assertTrue(passage.getLinks().contains(link));
+        assertTrue(passage.getLinks().contains(link2));
+        assertEquals(2, passage.getLinks().size());
     }
 
     @Test
     public void testHasLinks() {
-        List<Link> list = new ArrayList<Link>();
-
+        Passage passage = new Passage("title", "content");
         Link link = new Link("text", "reference");
-        Passage passage = new Passage("Gold sword", "You found a gold sword");
+        Link link2 = new Link("text2", "reference2");
 
-        list.add(link);
+        passage.addLink(link);
+        passage.addLink(link2);
+
+        assertTrue(passage.hasLinks());
     }
-
 }
