@@ -22,14 +22,21 @@ public class InventoryGoal {
      * @return true if inventory is fulfilled and false if not
      */
     public boolean isFulfilled(Player player) {
-        Collections.sort(mandatoryItems);
-        Collections.sort(player.getInventory());
-
-        for (int i = 0; i < mandatoryItems.size(); i++) {
-            if (!player.getInventory().get(i).equals(mandatoryItems.get(i))) {
-                return false;
-            }
+        if (player == null) {
+            throw new IllegalArgumentException("No player found");
         }
-        return true;
+        return player.getInventory().contains(mandatoryItems);
     }
+
+
+//        Collections.sort(mandatoryItems);
+//        Collections.sort(player.getInventory());
+//
+//        for (int i = 0; i < player.getInventory().size(); i++) {
+//            if (!player.getInventory().get(i).equals(mandatoryItems.get(i))) {
+//                return false;
+//            }
+//        }
+//        return true;
+//    }
 }
