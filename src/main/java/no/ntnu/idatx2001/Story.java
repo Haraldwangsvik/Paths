@@ -21,10 +21,11 @@ public class Story {
     private final Passage openingPassage;
 
     public Story(String title, Passage openingPassage) {
-        if (title.isBlank()) {
-            throw new IllegalArgumentException("Title cannot be blank!");
-        } else {
+        if (isValid(title)) {
             this.title = title;
+        } else {
+            IllegalArgumentException e = new IllegalArgumentException("Invalid entry");
+            throw e;
         }
 
         this.openingPassage = openingPassage;
@@ -102,5 +103,15 @@ public class Story {
         }
 
         return deadLinks;
+    }
+
+    /**
+     * Check that a String is valid by checking that it does not equal null or is empty.
+     *
+     * @param string to be checked if is valid
+     * @return true on string not null or empty, false on string equals null or string is empty
+     */
+    public boolean isValid(String string) {
+        return string != null && !string.isEmpty();
     }
 }
