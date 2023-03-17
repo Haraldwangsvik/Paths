@@ -57,7 +57,4 @@ public class StoryTest {
 
         story.addPassage(passage);
     }
-
-
-
 }

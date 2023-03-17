@@ -1,10 +1,6 @@
 package no.ntnu.idatx2001;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * A class that represents a story.
@@ -29,6 +25,7 @@ public class Story {
         }
 
         this.openingPassage = openingPassage;
+        this.passages = new HashMap<>();
     }
 
     /**
