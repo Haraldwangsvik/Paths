@@ -49,12 +49,27 @@ public class StoryTest {
         }
     }
 
+    /**
+     * Testing that a valid passage is added to story
+     */
     @Test
     public void testAddPassage() {
         Passage passage = new Passage("title", "content");
         Story story = new Story("title", passage);
-        Link link = new Link("text", "reference");
+        Link link = new Link("title", "title");
 
         story.addPassage(passage);
+
+        assertEquals(story.getPassage(link), passage);
+    }
+
+    /**
+     * Testing that an attempt of adding an invalid passage return
+     * an illegal argument exception
+     */
+    public void testAddInvalidPassage() {
+        Story story = new Story("title", null);
+        Link link = new Link("title", "title");
+        
     }
 }

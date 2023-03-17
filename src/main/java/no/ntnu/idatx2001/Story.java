@@ -17,7 +17,7 @@ public class Story {
     private final Passage openingPassage;
 
     public Story(String title, Passage openingPassage) {
-        if (isValid(title)) {
+        if (isValidString(title)) {
             this.title = title;
         } else {
             IllegalArgumentException e = new IllegalArgumentException("Invalid entry");
@@ -49,8 +49,12 @@ public class Story {
      * @param passage the passage added to the story
      */
     public void addPassage(Passage passage) {
-        Link link = new Link(title, title);
-        this.passages.put(link, passage);
+        if (isValidObject(passage)) {
+            Link link = new Link(title, title);
+            this.passages.put(link, passage);
+        } else {
+            throw new IllegalArgumentException("Invalid entry");
+        }
     }
 
     /**
@@ -108,7 +112,17 @@ public class Story {
      * @param string to be checked if is valid
      * @return true on string not null or empty, false on string equals null or string is empty
      */
-    public boolean isValid(String string) {
+    public boolean isValidString(String string) {
         return string != null && !string.isEmpty();
+    }
+
+    /**
+     * Check that an object is valid by checking that it does not equal null
+     *
+     * @param object to be checked if is valid
+     * @return true on object not null
+     */
+    public boolean isValidObject(Object object) {
+        return object != null;
     }
 }
