@@ -2,6 +2,7 @@ package no.ntnu.idatx2001;
 
 import no.ntnu.idatx2001.goals.Goal;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
@@ -27,11 +28,11 @@ public class Game {
     if (isValid(player) && isValid(story)) {
       this.player = player;
       this.story = story;
-      this.goals = goals;
     } else {
       IllegalArgumentException e = new IllegalArgumentException("Invalid entry");
       throw e;
     }
+    this.goals = new ArrayList<>();
   }
 
   /**
@@ -56,6 +57,23 @@ public class Game {
    */
   public List<Goal> getGoals() {
     return this.goals;
+  }
+
+  /**
+   * Return the first passage of the story.
+   * @return first passage of the story
+   */
+  public Passage begin() {
+    return story.getOpeningPassage();
+  }
+
+  public Passage go(Link link) {
+    if (link.getReference().equals(story.getTitle())) {
+      return story.getPassage(link);
+    } else {
+      throw new IllegalArgumentException("The links reference " +
+              "and the stories title do not match.");
+    }
   }
 
   private boolean isValid(Object o) {
