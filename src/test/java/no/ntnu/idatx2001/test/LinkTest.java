@@ -70,7 +70,7 @@ public class LinkTest {
   }
 
   /**
-   * Testing that a valid action is added to the list
+   * Testing that a valid action is added to action list
    */
   @Test
   public void testAddActionWithValidAction() {
