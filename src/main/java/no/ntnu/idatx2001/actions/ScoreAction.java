@@ -5,7 +5,7 @@ import no.ntnu.idatx2001.Player;
 /**
  * Represents a class that changes a players score.
  */
-public class ScoreAction {
+public class ScoreAction implements Action {
     private int points;
 
     public ScoreAction(int points) {

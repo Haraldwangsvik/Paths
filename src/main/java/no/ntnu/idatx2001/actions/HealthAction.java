@@ -5,7 +5,7 @@ import no.ntnu.idatx2001.Player;
 /**
  * Represents a class that changes a players health.
  */
-public class HealthAction {
+public class HealthAction implements Action{
     private int health;
 
     public HealthAction(int health) {
