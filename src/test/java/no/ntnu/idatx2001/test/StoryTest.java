@@ -70,6 +70,6 @@ public class StoryTest {
     public void testAddInvalidPassage() {
         Story story = new Story("title", null);
         Link link = new Link("title", "title");
-        
+
     }
 }
