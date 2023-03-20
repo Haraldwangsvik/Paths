@@ -1,11 +1,9 @@
 package no.ntnu.idatx2001.test;
 
-import no.ntnu.idatx2001.Game;
-import no.ntnu.idatx2001.Passage;
-import no.ntnu.idatx2001.Player;
-import no.ntnu.idatx2001.Story;
+import no.ntnu.idatx2001.*;
 import no.ntnu.idatx2001.goals.Goal;
 import no.ntnu.idatx2001.goals.GoldGoal;
+import no.ntnu.idatx2001.goals.HealthGoal;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -74,10 +72,82 @@ public class GameTest {
         Story story = new Story("title", passage);
         Game game = new Game(player, story, goals);
 
-        GoldGoal goldGoal = new GoldGoal(100);
-
-        goals.add(player1 -> goldGoal.isFulfilled(player1));
+        Goal goal = new GoldGoal(100);
+        game.getGoals().add(goal);
 
         assertEquals(1, game.getGoals().size());
+
+        Goal goal1 = new HealthGoal(83);
+        game.getGoals().add(goal1);
+
+        assertEquals(2, game.getGoals().size());
+    }
+    @Test
+    public void testBegin() {
+        Player player = new Player("name", 100, 10, 15);
+        Passage passage = new Passage("title", "content");
+        Story story = new Story("title", passage);
+        Game game = new Game(player, story, goals);
+
+        assertEquals(passage, game.begin());
+    }
+
+    @Test
+    public void testBeginWithNull() {
+        try {
+            Player player = new Player("name", 100, 10, 15);
+            Passage passage = new Passage("title", "content");
+            Story story = new Story("title", passage);
+            Game game = new Game(null, null, null);
+
+            game.begin();
+        } catch (IllegalArgumentException e) {
+            assertTrue(true);
+            e.getMessage();
+        }
+    }
+
+    @Test
+    public void testGo() {
+        Player player = new Player("name", 100, 10, 15);
+        Link link = new Link("text", "title");
+        Passage passage = new Passage("title", "content");
+        Story story = new Story("title", passage);
+        Game game = new Game(player, story, goals);
+
+        assertEquals(story.getPassage(link), game.go(link));
+    }
+
+    @Test
+    public void testGoWithDifferentValues() {
+        try {
+            Player player = new Player("name", 100, 10, 15);
+            Link link = new Link("text", "reference");
+            Passage passage = new Passage("title", "content");
+            Story story = new Story("title", passage);
+            Game game = new Game(player, story, goals);
+
+            game.go(link);
+        } catch (IllegalArgumentException e) {
+            assertTrue(true);
+            e.getMessage();
+        }
+    }
+
+    @Test
+    public void testGoWithNull() {
+        try {
+            Player player = new Player("name", 100, 10, 15);
+            Link link = new Link("text", null);
+            Passage passage = new Passage("title", "content");
+            Story story = new Story(null, passage);
+            Game game = new Game(player, story, goals);
+
+            game.go(link);
+
+        } catch (IllegalArgumentException e) {
+            assertTrue(true);
+            e.getMessage();
+        }
     }
 }
