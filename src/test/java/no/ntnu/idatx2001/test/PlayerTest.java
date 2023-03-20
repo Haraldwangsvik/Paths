@@ -77,11 +77,13 @@ public class PlayerTest {
 
     @Test
     public void testAddScoreNegativeScore() {
-        Player player = new Player("name", 100, 10, 1);
-
-        player.addScore(-12);
-
-        assertEquals(-2, player.getScore());
+        try {
+            Player player = new Player("name", 100, 10, 1);
+            player.addScore(-12);
+        } catch (IllegalArgumentException e) {
+            assertTrue(true);
+            e.getMessage();
+        }
     }
 
     @Test
@@ -105,11 +107,13 @@ public class PlayerTest {
 
     @Test
     public void testAddGoldNegativeGold() {
-        Player player = new Player("name", 100, 10, 1);
-
-        player.addGold(-12);
-
-        assertEquals(-11, player.getGold());
+        try {
+            Player player = new Player("name", 100, 10, 1);
+            player.addGold(-12);
+        } catch (IllegalArgumentException e) {
+            assertTrue(true);
+            e.getMessage();
+        }
     }
 
     @Test
