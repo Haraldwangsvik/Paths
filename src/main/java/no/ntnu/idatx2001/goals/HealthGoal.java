@@ -5,7 +5,7 @@ import no.ntnu.idatx2001.Player;
 /**
  * A class that represents the expected minimum health.
  */
-public class HealthGoal {
+public class HealthGoal implements Goal{
     private final int minimumHealth;
 
     public HealthGoal(int minimumHealth) {

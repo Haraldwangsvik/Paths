@@ -5,7 +5,7 @@ import no.ntnu.idatx2001.Player;
 /**
  * A class that represents the expected minimum score.
  */
-public class ScoreGoal {
+public class ScoreGoal implements Goal {
     private final int minimumPoints;
 
     public ScoreGoal(int minimumPoints) {

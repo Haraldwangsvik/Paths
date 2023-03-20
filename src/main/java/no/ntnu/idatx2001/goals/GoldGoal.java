@@ -5,7 +5,7 @@ import no.ntnu.idatx2001.Player;
 /**
  * A class that represents the expected minimum gold.
  */
-public class GoldGoal {
+public class GoldGoal implements Goal{
     private final int minimumGold;
 
     public GoldGoal(int minimumGold) {

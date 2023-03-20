@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * A class that represents the expected inventory.
  */
-public class InventoryGoal {
+public class InventoryGoal implements Goal{
     private List<String> mandatoryItems;
 
     public InventoryGoal(List<String> mandatoryItems) {
