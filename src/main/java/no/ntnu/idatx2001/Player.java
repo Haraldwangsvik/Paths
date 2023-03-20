@@ -31,8 +31,16 @@ public class Player {
         } else {
             this.health = health;
         }
-        this.score = score;
-        this.gold = gold;
+        if (score < 0) {
+            throw new IllegalArgumentException("Score can not be negative");
+        } else {
+            this.score = score;
+        }
+        if (gold < 0) {
+            throw new IllegalArgumentException("Gold can not be negative");
+        } else {
+            this.gold = gold;
+        }
         this.inventory = new ArrayList<>();
     }
 

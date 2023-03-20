@@ -25,18 +25,7 @@ public class InventoryGoal implements Goal{
         if (player == null) {
             throw new IllegalArgumentException("No player found");
         }
-        return player.getInventory().contains(mandatoryItems);
+
+        return player.getInventory().containsAll(mandatoryItems);
     }
-
-
-//        Collections.sort(mandatoryItems);
-//        Collections.sort(player.getInventory());
-//
-//        for (int i = 0; i < player.getInventory().size(); i++) {
-//            if (!player.getInventory().get(i).equals(mandatoryItems.get(i))) {
-//                return false;
-//            }
-//        }
-//        return true;
-//    }
 }
