@@ -37,5 +37,6 @@ public class FileHandler {
       }
 
     }
+    Story story = new Story(title, currentPassage);
   }
 }
