@@ -3,7 +3,6 @@ package no.ntnu.idatx2001.goals;
 import no.ntnu.idatx2001.Player;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -13,7 +12,7 @@ public class InventoryGoal implements Goal{
     private List<String> mandatoryItems;
 
     public InventoryGoal(List<String> mandatoryItems) {
-        this.mandatoryItems = new ArrayList<>();
+        this.mandatoryItems = mandatoryItems;
     }
 
     /**
@@ -25,7 +24,6 @@ public class InventoryGoal implements Goal{
         if (player == null) {
             throw new IllegalArgumentException("No player found");
         }
-
         return player.getInventory().containsAll(mandatoryItems);
     }
 }
