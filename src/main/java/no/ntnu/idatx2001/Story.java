@@ -50,7 +50,7 @@ public class Story {
      */
     public void addPassage(Passage passage) {
         if (isValidObject(passage)) {
-            Link link = new Link(title, title);
+            Link link = new Link(passage.getTitle(), passage.getTitle());
             this.passages.put(link, passage);
         } else {
             throw new IllegalArgumentException("Invalid entry");

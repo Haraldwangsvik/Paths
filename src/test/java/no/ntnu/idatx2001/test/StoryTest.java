@@ -62,14 +62,44 @@ public class StoryTest {
 
         assertEquals(story.getPassage(link), passage);
     }
+    @Test
+    public void testAddSeveralPassage() {
+        Passage passage = new Passage("title", "content");
+        Passage passage1 = new Passage("title1", "content1");
+        Story story = new Story("title", passage);
+        Link link = new Link("title", "title");
+
+        story.addPassage(passage);
+        story.addPassage(passage1);
+        assertEquals(2, story.getPassages().size());
+    }
 
     /**
      * Testing that an attempt of adding an invalid passage return
      * an illegal argument exception
      */
+    @Test
     public void testAddInvalidPassage() {
-        Story story = new Story("title", null);
+        try {
+            Story story = new Story("title", null);
+            Link link = new Link("title", "title");
+            Passage passage = new Passage("title", null);
+
+            story.addPassage(passage);
+        } catch (IllegalArgumentException e) {
+            assertTrue(true);
+            e.getMessage();
+        }
+    }
+
+    @Test
+    public void testGetPassages() {
+        Passage passage = new Passage("title", "content");
+        Passage passage1 = new Passage("title1", "content1");
+        Story story = new Story("title", passage);
         Link link = new Link("title", "title");
 
+        story.addPassage(passage);
+        assertEquals(1, story.getPassages().size());
     }
 }
